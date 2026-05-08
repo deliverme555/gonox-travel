@@ -1,0 +1,12 @@
+{
+  "nav": { "home": "Start", "flights": "Flüge", "hotels": "Hotels", "deals": "Angebote", "blog": "Blog", "about": "Über uns", "contact": "Kontakt", "language": "Sprache" },
+  "home": { "hero": { "title": "Flüge intelligenter suchen", "subtitle": "Vergleichen Sie Flüge, Hotels und Reiseangebote weltweit", "searchFlights": "Flüge suchen", "exploreDeals": "Angebote entdecken" } },
+  "pages": {
+    "flights": { "title": "Flugsuche", "description": "Vergleichen Sie Inlands- und Auslandstarife mit verlässlichen Partnern." },
+    "hotels": { "title": "Hotelsuche", "description": "Finden Sie Hotels, Resorts und Apartments mit flexiblen Preisen." },
+    "deals": { "title": "Top-Reiseangebote", "description": "Aktuelle Aktionen für Flüge, Hotels und Pakete.", "cta": "Jetzt buchen" },
+    "blog": { "title": "Reiseblog", "description": "Praktische Guides und Reisetipps vom Gonox-Team." },
+    "about": { "title": "Über Gonox Travel", "description": "Wir helfen Reisenden, schneller zu vergleichen und sicher zu buchen." },
+    "contact": { "title": "Kontakt", "description": "Fragen zu Partnerschaften, Medien oder Reisehilfe? Schreiben Sie uns.", "form": { "name": "Ihr Name", "email": "E-Mail-Adresse", "message": "Wie können wir helfen?", "submit": "Nachricht senden" } }
+  }
+}

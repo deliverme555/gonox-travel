@@ -1,0 +1,12 @@
+{
+  "nav": { "home": "ホーム", "flights": "航空券", "hotels": "ホテル", "deals": "お得情報", "blog": "ブログ", "about": "会社情報", "contact": "お問い合わせ", "language": "言語" },
+  "home": { "hero": { "title": "賢くフライト検索", "subtitle": "世界中の航空券・ホテル・旅行特価を比較", "searchFlights": "航空券を検索", "exploreDeals": "お得情報を見る" } },
+  "pages": {
+    "flights": { "title": "航空券検索", "description": "信頼できる提携先で国内外の運賃を比較できます。" },
+    "hotels": { "title": "ホテル検索", "description": "ホテル、リゾート、アパートメントを柔軟な料金で検索。" },
+    "deals": { "title": "おすすめ旅行セール", "description": "航空券・ホテル・パッケージの最新キャンペーン。", "cta": "今すぐ予約" },
+    "blog": { "title": "旅行ブログ", "description": "Gonox編集チームによる実用的な旅行ガイド。" },
+    "about": { "title": "Gonox Travelについて", "description": "比較をもっと速く、予約をもっと安心に。" },
+    "contact": { "title": "お問い合わせ", "description": "提携・メディア・サポートのご相談はこちら。", "form": { "name": "お名前", "email": "メールアドレス", "message": "ご用件を入力してください", "submit": "送信" } }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "home": "Home",
+    "flights": "Flights",
+    "hotels": "Hotels",
+    "deals": "Deals",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "footer": {
+    "description": "Compare prices from trusted partners and book smarter with Gonox Travel.",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "home": "Home",
+    "flights": "Flights",
+    "hotels": "Hotels",
+    "deals": "Deals",
+    "blog": "Blog",
+    "copyright": "© 2026 Gonox Travel. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "Search Flights Smarter",
+      "subtitle": "Compare flights, hotels and travel deals worldwide",
+      "searchFlights": "Search Flights",
+      "exploreDeals": "Explore Deals",
+      "tabs": {
+        "flights": "Flights",
+        "hotels": "Hotels",
+        "cars": "Cars"
+      },
+      "from": "From",
+      "to": "To",
+      "date": "Departure date",
+      "search": "Search now"
+    },
+    "destinations": {
+      "title": "Popular Destinations",
+      "items": {
+        "tokyo": { "city": "Tokyo", "country": "Japan", "summary": "Modern neighborhoods, culture and top-rated food scenes." },
+        "paris": { "city": "Paris", "country": "France", "summary": "Classic museums, elegant streets and iconic landmarks." },
+        "london": { "city": "London", "country": "United Kingdom", "summary": "Historic sights, theater districts and global cuisine." },
+        "bali": { "city": "Bali", "country": "Indonesia", "summary": "Beach resorts, wellness retreats and tropical sunsets." },
+        "newYork": { "city": "New York", "country": "United States", "summary": "Skyline views, shopping avenues and famous attractions." },
+        "dubai": { "city": "Dubai", "country": "United Arab Emirates", "summary": "Luxury hotels, desert activities and modern architecture." }
+      }
+    },
+    "flights": {
+      "title": "Flight Deals",
+      "cta": "View fare",
+      "items": {
+        "deal1": { "title": "Toronto to Tokyo", "subtitle": "Round-trip economy in September", "price": "CAD 894" },
+        "deal2": { "title": "Vancouver to Paris", "subtitle": "One-stop return with full-service airline", "price": "CAD 812" },
+        "deal3": { "title": "Montreal to London", "subtitle": "Weekend departure special fare", "price": "CAD 699" }
+      }
+    },
+    "hotels": {
+      "title": "Hotel Deals",
+      "cta": "Check room",
+      "items": {
+        "hotel1": { "title": "Shibuya Sky Hotel", "subtitle": "4-star stay near Shibuya Station", "price": "CAD 186 / night" },
+        "hotel2": { "title": "Paris Riverside Suites", "subtitle": "Boutique rooms by the Seine", "price": "CAD 234 / night" },
+        "hotel3": { "title": "Bali Ocean Retreat", "subtitle": "Resort villa with breakfast included", "price": "CAD 158 / night" }
+      }
+    },
+    "why": {
+      "title": "Why Choose Gonox Travel",
+      "items": {
+        "feature1": { "title": "Real-time Price Comparison", "summary": "Track fares across leading providers in one place." },
+        "feature2": { "title": "Curated Premium Deals", "summary": "Hand-picked offers for flights, stays and vacation bundles." },
+        "feature3": { "title": "Global Coverage", "summary": "Search major cities and hidden gems worldwide." },
+        "feature4": { "title": "Affiliate Transparency", "summary": "We clearly mark partner links and focus on best value." }
+      }
+    },
+    "blog": {
+      "title": "From the Gonox Travel Blog",
+      "items": {
+        "post1": { "title": "How to Find Cheaper Flights in 2026", "summary": "Use flexible dates, nearby airports and fare alerts effectively." },
+        "post2": { "title": "Top 7 City Breaks for Fall", "summary": "Our editors share short-trip picks for culture and food lovers." },
+        "post3": { "title": "Hotel Booking Timing Guide", "summary": "When to book luxury, business and family stays for best rates." }
+      }
+    }
+  },
+  "pages": {
+    "flights": {
+      "title": "Flight Search",
+      "description": "Search domestic and international airfares with trusted travel partners."
+    },
+    "hotels": {
+      "title": "Hotel Search",
+      "description": "Find hotels, resorts and apartments with flexible rates and guest reviews."
+    },
+    "deals": {
+      "title": "Top Travel Deals",
+      "description": "Fresh promotions for flights, hotels and package holidays.",
+      "cta": "Book now",
+      "items": {
+        "item1": { "title": "Toronto to Dubai + Hotel", "subtitle": "6 nights with breakfast included", "price": "CAD 1,499" },
+        "item2": { "title": "Seoul Weekend Flight Offer", "subtitle": "Direct flight special, limited seats", "price": "CAD 588" },
+        "item3": { "title": "Paris Boutique Hotel Sale", "subtitle": "Save up to 22% this month", "price": "From CAD 209 / night" },
+        "item4": { "title": "Bali Family Package", "subtitle": "Resort + transfer + daily breakfast", "price": "CAD 1,120" }
+      }
+    },
+    "blog": {
+      "title": "Travel Blog",
+      "description": "Practical guides and destination insights from Gonox editors.",
+      "items": {
+        "post1": { "title": "Best Time to Book Long-Haul Flights", "summary": "Data-backed booking windows to reduce airfare costs." },
+        "post2": { "title": "Carry-on Packing Checklist", "summary": "A professional checklist for business and leisure travel." },
+        "post3": { "title": "How to Compare Hotel Value", "summary": "Look beyond nightly rates to spot the real best deal." }
+      }
+    },
+    "about": {
+      "title": "About Gonox Travel",
+      "description": "Gonox Travel helps travelers compare options faster and book with confidence.",
+      "values": {
+        "point1": { "title": "Clarity", "summary": "Simple interfaces and transparent pricing context." },
+        "point2": { "title": "Trust", "summary": "We work with reliable affiliate partners and clear disclosures." },
+        "point3": { "title": "Speed", "summary": "Designed to surface relevant travel options quickly." },
+        "point4": { "title": "Global Mindset", "summary": "Built for multilingual users and cross-border travel planning." }
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Questions about partnerships, media, or travel support? Send us a message.",
+      "form": {
+        "name": "Your name",
+        "email": "Email address",
+        "message": "How can we help?",
+        "submit": "Send message"
+      }
+    }
+  }
+}

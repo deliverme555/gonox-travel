@@ -1,0 +1,26 @@
+import { useTranslations } from "next-intl";
+
+export default function AboutPage() {
+  const t = useTranslations("pages.about");
+  const points = ["point1", "point2", "point3", "point4"] as const;
+
+  return (
+    <section className="container-shell py-14">
+      <h1 className="text-3xl font-bold text-slate-900">{t("title")}</h1>
+      <p className="mt-3 max-w-3xl text-slate-600">{t("description")}</p>
+
+      <div className="mt-8 grid gap-4 md:grid-cols-2">
+        {points.map((point) => (
+          <article key={point} className="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-slate-900">
+              {t(`values.${point}.title`)}
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              {t(`values.${point}.summary`)}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

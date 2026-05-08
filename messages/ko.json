@@ -1,0 +1,12 @@
+{
+  "nav": { "home": "홈", "flights": "항공권", "hotels": "호텔", "deals": "특가", "blog": "블로그", "about": "소개", "contact": "문의", "language": "언어" },
+  "home": { "hero": { "title": "더 똑똑한 항공권 검색", "subtitle": "전 세계 항공권, 호텔, 여행 특가를 비교하세요", "searchFlights": "항공권 검색", "exploreDeals": "특가 보기" } },
+  "pages": {
+    "flights": { "title": "항공권 검색", "description": "신뢰할 수 있는 파트너와 국내외 항공 요금을 비교하세요." },
+    "hotels": { "title": "호텔 검색", "description": "호텔, 리조트, 아파트를 유연한 요금으로 찾아보세요." },
+    "deals": { "title": "인기 여행 특가", "description": "항공권, 호텔, 패키지 최신 프로모션.", "cta": "지금 예약" },
+    "blog": { "title": "여행 블로그", "description": "Gonox 에디터 팀의 실용적인 여행 가이드." },
+    "about": { "title": "Gonox Travel 소개", "description": "더 빠른 비교와 더 신뢰할 수 있는 예약을 제공합니다." },
+    "contact": { "title": "문의하기", "description": "제휴, 미디어, 여행 지원 문의를 남겨주세요.", "form": { "name": "이름", "email": "이메일", "message": "무엇을 도와드릴까요?", "submit": "메시지 보내기" } }
+  }
+}

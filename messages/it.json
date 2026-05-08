@@ -1,0 +1,12 @@
+{
+  "nav": { "home": "Home", "flights": "Voli", "hotels": "Hotel", "deals": "Offerte", "blog": "Blog", "about": "Chi siamo", "contact": "Contatti", "language": "Lingua" },
+  "home": { "hero": { "title": "Cerca voli in modo intelligente", "subtitle": "Confronta voli, hotel e offerte viaggio in tutto il mondo", "searchFlights": "Cerca voli", "exploreDeals": "Scopri offerte" } },
+  "pages": {
+    "flights": { "title": "Ricerca voli", "description": "Confronta tariffe nazionali e internazionali con partner affidabili." },
+    "hotels": { "title": "Ricerca hotel", "description": "Trova hotel, resort e appartamenti con tariffe flessibili." },
+    "deals": { "title": "Migliori offerte viaggio", "description": "Promozioni aggiornate su voli, hotel e pacchetti.", "cta": "Prenota ora" },
+    "blog": { "title": "Blog di viaggio", "description": "Guide pratiche e consigli del team editoriale Gonox." },
+    "about": { "title": "Informazioni su Gonox Travel", "description": "Aiutiamo i viaggiatori a confrontare più velocemente e prenotare con fiducia." },
+    "contact": { "title": "Contattaci", "description": "Partnership, media o supporto viaggio: scrivici.", "form": { "name": "Il tuo nome", "email": "Email", "message": "Come possiamo aiutarti?", "submit": "Invia messaggio" } }
+  }
+}

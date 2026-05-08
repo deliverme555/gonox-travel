@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "首頁",
+    "flights": "機票",
+    "hotels": "飯店",
+    "deals": "優惠",
+    "blog": "部落格",
+    "about": "關於",
+    "contact": "聯絡",
+    "language": "語言"
+  },
+  "home": {
+    "hero": {
+      "title": "更聰明地搜尋航班",
+      "subtitle": "全球比價機票、飯店與旅遊優惠",
+      "searchFlights": "搜尋機票",
+      "exploreDeals": "探索優惠",
+      "tabs": {
+        "flights": "機票",
+        "hotels": "飯店",
+        "cars": "租車"
+      },
+      "from": "出發地",
+      "to": "目的地",
+      "date": "出發日期",
+      "search": "立即搜尋"
+    }
+  },
+  "pages": {
+    "flights": { "title": "機票搜尋", "description": "透過可信賴合作夥伴比較國內外票價。" },
+    "hotels": { "title": "飯店搜尋", "description": "尋找飯店、公寓與度假村，提供彈性房價。" },
+    "deals": { "title": "精選旅遊優惠", "description": "機票、飯店與套裝行程的最新折扣。", "cta": "立即預訂" },
+    "blog": { "title": "旅遊部落格", "description": "由 Gonox 編輯團隊提供的實用旅遊內容。" },
+    "about": { "title": "關於 Gonox Travel", "description": "幫助旅客更快比較行程並安心下訂。" },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "合作、媒體或旅遊相關問題，歡迎來訊。",
+      "form": { "name": "您的姓名", "email": "電子郵件", "message": "我們可以如何協助您？", "submit": "送出訊息" }
+    }
+  }
+}

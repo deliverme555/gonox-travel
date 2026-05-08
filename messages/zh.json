@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "首页",
+    "flights": "机票",
+    "hotels": "酒店",
+    "deals": "优惠",
+    "blog": "博客",
+    "about": "关于",
+    "contact": "联系",
+    "language": "语言"
+  },
+  "home": {
+    "hero": {
+      "title": "更聪明地搜索机票",
+      "subtitle": "全球比较机票、酒店和旅行优惠",
+      "searchFlights": "搜索机票",
+      "exploreDeals": "探索优惠",
+      "tabs": {
+        "flights": "机票",
+        "hotels": "酒店",
+        "cars": "租车"
+      },
+      "from": "出发地",
+      "to": "目的地",
+      "date": "出发日期",
+      "search": "立即搜索"
+    }
+  },
+  "pages": {
+    "flights": { "title": "机票搜索", "description": "与可信合作伙伴比较国内外机票价格。" },
+    "hotels": { "title": "酒店搜索", "description": "查找酒店、公寓与度假村，支持灵活价格。" },
+    "deals": { "title": "精选旅行优惠", "description": "机票、酒店与套餐的最新促销。", "cta": "立即预订" },
+    "blog": { "title": "旅行博客", "description": "来自 Gonox 编辑团队的实用旅行指南。" },
+    "about": { "title": "关于 Gonox Travel", "description": "帮助旅客更快比较并放心预订。" },
+    "contact": {
+      "title": "联系我们",
+      "description": "合作、媒体或旅行相关问题，欢迎留言。",
+      "form": { "name": "您的姓名", "email": "电子邮箱", "message": "我们如何帮助您？", "submit": "发送消息" }
+    }
+  }
+}
