@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { withMarker } from "@/lib/affiliate";
-const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 type QuickRoute = {
   label: string;
@@ -20,23 +19,43 @@ const quickRoutes: QuickRoute[] = [
 ];
 
 export default function HeroSearch() {
+  const marker = process.env.NEXT_PUBLIC_TP_MARKER;
   const [from, setFrom] = useState("YVR");
   const [to, setTo] = useState("NRT");
   const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [passengers, setPassengers] = useState("1");
 
+  const getIataCode = (value: string, fallback: string) => {
+    const match = value.toUpperCase().match(/[A-Z]{3}/g);
+    if (match && match.length > 0) return match[match.length - 1];
+
+    const compact = value.trim().toUpperCase();
+    if (/^[A-Z]{3}$/.test(compact)) return compact;
+    return fallback;
+  };
+
   const toDateToken = (dateValue: string) => {
-    if (!dateValue) return "0109";
+    if (!dateValue) {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, "0");
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      return `${day}${month}`;
+    }
     const [year, month, day] = dateValue.split("-");
-    if (!year || !month || !day) return "0109";
+    if (!year || !month || !day) {
+      const now = new Date();
+      const nowDay = String(now.getDate()).padStart(2, "0");
+      const nowMonth = String(now.getMonth() + 1).padStart(2, "0");
+      return `${nowDay}${nowMonth}`;
+    }
     return `${day}${month}`;
   };
 
   const buildSearchUrl = () => {
     const dateToken = toDateToken(departureDate);
-    const normalizedFrom = from.trim().toUpperCase() || "YVR";
-    const normalizedTo = to.trim().toUpperCase() || "NRT";
+    const normalizedFrom = getIataCode(from, "YVR");
+    const normalizedTo = getIataCode(to, "NRT");
     const baseUrl = `https://www.aviasales.com/search/${normalizedFrom}${dateToken}${normalizedTo}1`;
     return withMarker(baseUrl, marker);
   };
@@ -53,7 +72,8 @@ export default function HeroSearch() {
           <input
             value={from}
             onChange={(event) => setFrom(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            type="text"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
             placeholder="From (e.g. Vancouver YVR)"
           />
         </div>
@@ -62,7 +82,8 @@ export default function HeroSearch() {
           <input
             value={to}
             onChange={(event) => setTo(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            type="text"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
             placeholder="To (e.g. Tokyo NRT)"
           />
         </div>
@@ -74,7 +95,7 @@ export default function HeroSearch() {
             value={departureDate}
             onChange={(event) => setDepartureDate(event.target.value)}
             type="date"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
           />
         </div>
         <div>
@@ -85,7 +106,7 @@ export default function HeroSearch() {
             value={returnDate}
             onChange={(event) => setReturnDate(event.target.value)}
             type="date"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
           />
         </div>
         <div>
@@ -95,10 +116,10 @@ export default function HeroSearch() {
           <select
             value={passengers}
             onChange={(event) => setPassengers(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
           >
             {Array.from({ length: 9 }, (_, index) => (
-              <option key={index + 1} value={index + 1}>
+              <option key={index + 1} value={String(index + 1)}>
                 {index + 1} Passenger{index === 0 ? "" : "s"}
               </option>
             ))}
@@ -131,11 +152,6 @@ export default function HeroSearch() {
             </button>
           ))}
         </div>
-      </div>
-
-      <div className="mt-3 text-xs text-slate-500">
-        Search URL format:{" "}
-        <code>https://www.aviasales.com/search/FROMDDMMTO1?marker=NEXT_PUBLIC_TP_MARKER</code>
       </div>
     </div>
   );
