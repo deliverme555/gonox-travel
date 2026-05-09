@@ -83,34 +83,36 @@ export default function HeroSearch() {
   };
 
   return (
-    <div className="w-full rounded-2xl bg-white p-4 shadow-xl sm:p-6">
-      <div className="mb-4 inline-flex rounded-full bg-slate-100 p-1">
-        <button
-          type="button"
-          onClick={() => setTripType("return")}
-          className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-            tripType === "return"
-              ? "bg-sky-500 text-white"
-              : "text-slate-600 hover:text-slate-900"
-          }`}
-        >
-          Return
-        </button>
-        <button
-          type="button"
-          onClick={() => setTripType("oneway")}
-          className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-            tripType === "oneway"
-              ? "bg-sky-500 text-white"
-              : "text-slate-600 hover:text-slate-900"
-          }`}
-        >
-          One-way
-        </button>
+    <div className="w-full rounded-2xl bg-white p-6 shadow-sm">
+      <div className="mb-4 flex items-center justify-start">
+        <div className="inline-flex rounded-full bg-slate-100 p-1">
+          <button
+            type="button"
+            onClick={() => setTripType("return")}
+            className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+              tripType === "return"
+                ? "bg-sky-500 text-white"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Return
+          </button>
+          <button
+            type="button"
+            onClick={() => setTripType("oneway")}
+            className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+              tripType === "oneway"
+                ? "bg-sky-500 text-white"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            One-way
+          </button>
+        </div>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-5">
-        <div>
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
+        <div className="lg:col-span-2">
           <label className="mb-1 block text-xs font-semibold text-slate-600">From</label>
           <input
             value={from}
@@ -120,7 +122,7 @@ export default function HeroSearch() {
             placeholder="City or airport"
           />
         </div>
-        <div>
+        <div className="lg:col-span-2">
           <label className="mb-1 block text-xs font-semibold text-slate-600">To</label>
           <input
             value={to}
@@ -130,33 +132,43 @@ export default function HeroSearch() {
             placeholder="City or airport"
           />
         </div>
-        <div>
+        <div className="lg:col-span-2">
           <label className="mb-1 block text-xs font-semibold text-slate-600">
             Departure date
           </label>
           <input
             value={departureDate}
             onChange={(event) => setDepartureDate(event.target.value)}
-            type="date"
+            placeholder="DD/MM/YYYY"
+            onFocus={(event) => (event.currentTarget.type = "date")}
+            onBlur={(event) => {
+              if (!event.currentTarget.value) event.currentTarget.type = "text";
+            }}
+            type="text"
             className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
           />
         </div>
         {tripType === "return" ? (
-          <div>
+          <div className="lg:col-span-2">
             <label className="mb-1 block text-xs font-semibold text-slate-600">
               Return date
             </label>
             <input
               value={returnDate}
               onChange={(event) => setReturnDate(event.target.value)}
-              type="date"
+              placeholder="DD/MM/YYYY"
+              onFocus={(event) => (event.currentTarget.type = "date")}
+              onBlur={(event) => {
+                if (!event.currentTarget.value) event.currentTarget.type = "text";
+              }}
+              type="text"
               className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
             />
           </div>
         ) : (
-          <div className="hidden md:block" />
+          <div className="hidden lg:block lg:col-span-2" />
         )}
-        <div>
+        <div className="lg:col-span-2">
           <label className="mb-1 block text-xs font-semibold text-slate-600">
             Passengers
           </label>
@@ -172,9 +184,19 @@ export default function HeroSearch() {
             ))}
           </select>
         </div>
+        <div className="lg:col-span-2">
+          <label className="mb-1 block text-xs font-semibold text-transparent">Search</label>
+          <button
+            type="button"
+            onClick={submitSearch}
+            className="w-full rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
+          >
+            Search Flights
+          </button>
+        </div>
       </div>
 
-      <label className="mt-4 inline-flex items-center gap-2 text-sm text-slate-700">
+      <label className="mt-4 inline-flex items-center gap-2 text-xs text-slate-700">
         <input
           type="checkbox"
           checked={nonStopOnly}
@@ -183,14 +205,6 @@ export default function HeroSearch() {
         />
         Non-stop flights only
       </label>
-
-      <button
-        type="button"
-        onClick={submitSearch}
-        className="mt-4 w-full rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600 md:w-auto"
-      >
-        Search Flights
-      </button>
 
       <div className="mt-5">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
