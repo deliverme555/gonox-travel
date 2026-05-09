@@ -57,7 +57,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-900 text-white">
       <div className="container-shell flex h-16 items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight">
+        <Link href="/" className="text-xl font-bold tracking-tight">
           Gonox Travel
         </Link>
 
@@ -66,12 +66,12 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-slate-200 transition hover:text-sky-400"
+              className="text-sm font-medium text-slate-200 transition-all duration-200 hover:text-sky-400"
             >
               <span className="inline-flex items-center gap-2">
                 {item.label}
                 {item.href === "/deals" && (
-                  <span className="rounded-full bg-sky-500 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  <span className="badge-text rounded-full bg-sky-500 px-2 py-0.5 font-semibold normal-case text-white">
                     Hot
                   </span>
                 )}
@@ -83,7 +83,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <button
             aria-label="Search"
-            className="rounded-full border border-slate-600 bg-slate-800 p-2 text-white transition hover:border-sky-400"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-slate-600 bg-slate-800 p-2 text-white transition-all duration-200 hover:border-sky-400"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-2">
               <circle cx="11" cy="11" r="7" />
@@ -98,7 +98,7 @@ export default function Navbar() {
             disabled={isPending}
             value={locale}
             onChange={(event) => handleLanguageChange(event.target.value)}
-            className="rounded-full border border-slate-600 bg-slate-800 px-4 py-2 text-sm text-white outline-none focus:border-sky-400"
+            className="min-h-[44px] rounded-full border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-medium text-white outline-none focus:border-sky-400"
           >
             {localeOptions.map((option) => (
               <option key={option.code} value={option.code}>
@@ -110,7 +110,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="rounded-md p-2 text-slate-100 md:hidden"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-slate-100 md:hidden"
           aria-label="Toggle menu"
         >
           <span className="block h-0.5 w-6 bg-current" />
@@ -127,13 +127,13 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-slate-100"
+                  className="text-sm font-medium text-slate-100"
                   onClick={() => setMenuOpen(false)}
                 >
                   <span className="inline-flex items-center gap-2">
                     {item.label}
                     {item.href === "/deals" && (
-                      <span className="rounded-full bg-sky-500 px-2 py-0.5 text-[10px] font-semibold text-white">
+                      <span className="badge-text rounded-full bg-sky-500 px-2 py-0.5 font-semibold normal-case text-white">
                         Hot
                       </span>
                     )}
@@ -144,7 +144,7 @@ export default function Navbar() {
             <select
               value={locale}
               onChange={(event) => handleLanguageChange(event.target.value)}
-              className="w-full rounded-full border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-white outline-none"
+              className="min-h-[44px] w-full rounded-full border border-slate-600 bg-slate-800 px-3 py-2 text-sm font-medium text-white outline-none"
             >
               {localeOptions.map((option) => (
                 <option key={option.code} value={option.code}>

@@ -34,12 +34,10 @@ export default function DestinationCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full p-5 text-white">
-          <p className="text-xs font-semibold uppercase tracking-widest text-sky-300">
-            {country}
-          </p>
-          <h3 className="mt-1 text-2xl font-semibold">{city}</h3>
-          <p className="mt-2 text-sm text-white/80">{summary}</p>
-          <span className="mt-4 inline-block rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <p className="label-upper text-sky-300 opacity-80">{country}</p>
+          <h3 className="mt-1 text-2xl font-bold">{city}</h3>
+          <p className="mt-2 text-sm leading-normal opacity-80">{summary}</p>
+          <span className="btn-card-cta mt-4 inline-flex min-h-[44px] items-center rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-white opacity-0 transition-all duration-200 group-hover:opacity-100">
             {ctaLabel}
           </span>
         </div>

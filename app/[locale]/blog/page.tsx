@@ -24,16 +24,16 @@ export default function BlogPage() {
 
   return (
     <section className="container-shell py-14">
-      <h1 className="text-3xl font-bold text-slate-900">{t("title")}</h1>
-      <p className="mt-3 max-w-3xl text-slate-600">{t("description")}</p>
+      <h1 className="heading-xl text-slate-900">{t("title")}</h1>
+      <p className="section-subtitle mt-3 max-w-3xl">{t("description")}</p>
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         {posts.map((post) => (
           <article key={post} className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="heading-sm text-slate-900">
               {t(`items.${post}.title`)}
             </h2>
-            <p className="mt-3 text-sm text-slate-600">{t(`items.${post}.summary`)}</p>
+            <p className="body-base mt-3 text-slate-600">{t(`items.${post}.summary`)}</p>
           </article>
         ))}
       </div>

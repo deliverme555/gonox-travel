@@ -33,8 +33,8 @@ export default async function CheapFlightsPage({ params }: CheapFlightsPageProps
 
   return (
     <section className="container-shell py-14">
-      <h1 className="text-4xl font-bold text-slate-900">Find Cheap Flights</h1>
-      <p className="mt-4 max-w-3xl text-slate-600">
+      <h1 className="heading-xl text-slate-900">Find Cheap Flights</h1>
+      <p className="section-subtitle mt-4 max-w-3xl">
         Compare routes, dates and airlines in seconds. Gonox Travel helps you
         scan global airfares and surface lower prices from trusted partners.
       </p>

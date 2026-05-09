@@ -29,24 +29,24 @@ export default function HotelSearch() {
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
           placeholder="Destination city"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          className="min-h-[44px] rounded-xl border border-slate-300 px-4 py-3 text-base outline-none ring-sky-300 focus:ring"
         />
         <input
           value={checkIn}
           onChange={(event) => setCheckIn(event.target.value)}
           type="date"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          className="min-h-[44px] rounded-xl border border-slate-300 px-4 py-3 text-base outline-none ring-sky-300 focus:ring"
         />
         <input
           value={checkOut}
           onChange={(event) => setCheckOut(event.target.value)}
           type="date"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          className="min-h-[44px] rounded-xl border border-slate-300 px-4 py-3 text-base outline-none ring-sky-300 focus:ring"
         />
         <select
           value={guests}
           onChange={(event) => setGuests(event.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          className="min-h-[44px] rounded-xl border border-slate-300 px-4 py-3 text-base outline-none ring-sky-300 focus:ring"
         >
           {Array.from({ length: 8 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -55,10 +55,7 @@ export default function HotelSearch() {
           ))}
         </select>
       </div>
-      <button
-        onClick={searchHotels}
-        className="mt-4 rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
-      >
+      <button type="button" onClick={searchHotels} className="btn-primary mt-4">
         Search Hotels
       </button>
     </div>

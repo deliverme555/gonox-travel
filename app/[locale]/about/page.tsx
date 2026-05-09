@@ -27,16 +27,16 @@ export default function AboutPage() {
 
   return (
     <section className="container-shell py-14">
-      <h1 className="text-3xl font-bold text-slate-900">{t("title")}</h1>
-      <p className="mt-3 max-w-3xl text-slate-600">{t("description")}</p>
+      <h1 className="heading-xl text-slate-900">{t("title")}</h1>
+      <p className="section-subtitle mt-3 max-w-3xl">{t("description")}</p>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {points.map((point) => (
           <article key={point} className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-900">
+            <h2 className="heading-sm text-slate-900">
               {t(`values.${point}.title`)}
             </h2>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="body-base mt-2 text-slate-600">
               {t(`values.${point}.summary`)}
             </p>
           </article>

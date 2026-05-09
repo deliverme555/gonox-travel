@@ -51,8 +51,8 @@ export default function PopularRoutesSection() {
 
   return (
     <section className="container-shell py-14">
-      <h2 className="text-2xl font-bold text-slate-900">Popular Routes</h2>
-      <p className="mt-2 text-sm text-slate-600">
+      <h2 className="section-title text-slate-900">Popular Routes</h2>
+      <p className="section-subtitle mt-2 opacity-70">
         {isLoading ? "Detecting local departure city..." : `Showing routes from ${detectedCity}`}
       </p>
       <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -63,22 +63,27 @@ export default function PopularRoutesSection() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-lg font-semibold text-slate-900">
+                <p className="text-lg font-bold text-slate-900">
                   {route.fromCity}
                 </p>
-                <p className="text-sm text-slate-500">{route.fromCode}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 opacity-60">
+                  {route.fromCode}
+                </p>
               </div>
               <div className="flex-1 px-2 text-center">
                 <p className="text-sm text-slate-400">──────── ✈️ ────────</p>
               </div>
               <div className="text-right">
-                <p className="text-lg font-semibold text-slate-900">{route.toCity}</p>
-                <p className="text-sm text-slate-500">{route.toCode}</p>
+                <p className="text-lg font-bold text-slate-900">{route.toCity}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 opacity-60">
+                  {route.toCode}
+                </p>
               </div>
             </div>
-            <div className="mt-4 flex items-center justify-between">
-              <p className="text-lg font-bold text-sky-600">
-                From CAD ${route.priceFromCad}
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <p className="flex flex-wrap items-baseline gap-x-1.5">
+                <span className="body-sm font-medium text-slate-600">From CAD</span>
+                <span className="price-display">${route.priceFromCad}</span>
               </p>
               <a
                 href={withMarker(
@@ -87,7 +92,7 @@ export default function PopularRoutesSection() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="rounded-lg border border-sky-500 px-4 py-2 text-sm font-semibold text-sky-600 transition hover:bg-sky-500 hover:text-white"
+                className="btn-card-cta inline-flex min-h-[44px] items-center rounded-lg border border-sky-500 px-4 py-2 text-sm font-semibold text-sky-600 hover:bg-sky-500 hover:text-white"
               >
                 Search Flights
               </a>

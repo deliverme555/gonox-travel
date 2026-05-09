@@ -26,10 +26,12 @@ export const metadata: Metadata = {
 export default function VancouverToTokyoPage() {
   return (
     <section className="container-shell py-14">
-      <h1 className="text-4xl font-bold text-slate-900">
+      <h1 className="heading-xl text-slate-900">
         Cheap Flights from Vancouver to Tokyo
       </h1>
-      <p className="mt-4 max-w-3xl text-slate-600">Compare YVR to NRT/HND fares with real-time partner pricing.</p>
+      <p className="section-subtitle mt-4 max-w-3xl">
+        Compare YVR to NRT/HND fares with real-time partner pricing.
+      </p>
 
       <div className="mt-8">
         <HeroSearch />
@@ -37,16 +39,18 @@ export default function VancouverToTokyoPage() {
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <article className="rounded-2xl bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Quick Facts</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-600">
+          <h2 className="heading-md text-slate-900">Quick Facts</h2>
+          <ul className="body-base mt-3 list-disc space-y-2 pl-6 text-slate-600">
             <li>Flight time: ~10hrs</li>
             <li>Best airlines: Air Canada, ANA, JAL</li>
             <li>Popular airports: YVR → NRT, YVR → HND</li>
           </ul>
         </article>
         <article className="rounded-2xl bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Best Time to Fly</h2>
-          <p className="mt-3 text-slate-600">March-May and September-November usually offer the best mix of weather and fare value.</p>
+          <h2 className="heading-md text-slate-900">Best Time to Fly</h2>
+          <p className="body-base mt-3 text-slate-600">
+            March-May and September-November usually offer the best mix of weather and fare value.
+          </p>
           <table className="mt-4 w-full border-collapse text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-left">
@@ -72,7 +76,7 @@ export default function VancouverToTokyoPage() {
         href={withMarker("https://www.aviasales.com/search/YVR0109NRT1", marker)}
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className="mt-8 inline-block rounded-full bg-sky-500 px-5 py-3 font-semibold text-white hover:bg-sky-600"
+        className="btn-primary mt-8 inline-flex"
       >
         Search Vancouver to Tokyo Flights
       </a>

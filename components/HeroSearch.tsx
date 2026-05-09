@@ -119,7 +119,7 @@ export default function HeroSearch() {
           <button
             type="button"
             onClick={() => setTripType("return")}
-            className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+            className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
               tripType === "return"
                 ? "bg-sky-500 text-white"
                 : "text-white/80 hover:text-white"
@@ -130,7 +130,7 @@ export default function HeroSearch() {
           <button
             type="button"
             onClick={() => setTripType("oneway")}
-            className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+            className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
               tripType === "oneway"
                 ? "bg-sky-500 text-white"
                 : "text-white/80 hover:text-white"
@@ -143,27 +143,31 @@ export default function HeroSearch() {
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-white/90">From</label>
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-white opacity-70">
+            From
+          </label>
           <input
             value={from}
             onChange={(event) => setFrom(event.target.value)}
             type="text"
-            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-base font-medium text-white outline-none placeholder:text-sm placeholder:opacity-50 placeholder:text-white focus:ring focus:ring-sky-300"
             placeholder="City or airport"
           />
         </div>
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-white/90">To</label>
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-white opacity-70">
+            To
+          </label>
           <input
             value={to}
             onChange={(event) => setTo(event.target.value)}
             type="text"
-            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-base font-medium text-white outline-none placeholder:text-sm placeholder:opacity-50 placeholder:text-white focus:ring focus:ring-sky-300"
             placeholder="City or airport"
           />
         </div>
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-white/90">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-white opacity-70">
             Departure date
           </label>
           <input
@@ -175,12 +179,12 @@ export default function HeroSearch() {
               if (!event.currentTarget.value) event.currentTarget.type = "text";
             }}
             type="text"
-            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-base font-medium text-white outline-none placeholder:text-sm placeholder:opacity-50 placeholder:text-white focus:ring focus:ring-sky-300"
           />
         </div>
         {tripType === "return" ? (
           <div className="lg:col-span-2">
-            <label className="mb-1 block text-xs font-semibold text-white/90">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-white opacity-70">
               Return date
             </label>
             <input
@@ -192,20 +196,20 @@ export default function HeroSearch() {
                 if (!event.currentTarget.value) event.currentTarget.type = "text";
               }}
               type="text"
-              className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
+              className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-base font-medium text-white outline-none placeholder:text-sm placeholder:opacity-50 placeholder:text-white focus:ring focus:ring-sky-300"
             />
           </div>
         ) : (
           <div className="hidden lg:block lg:col-span-2" />
         )}
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-white/90">
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-white opacity-70">
             Passengers
           </label>
           <select
             value={passengers}
             onChange={(event) => setPassengers(event.target.value)}
-            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white outline-none ring-sky-300 focus:ring"
+            className="min-h-[44px] w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-base font-medium text-white outline-none ring-sky-300 focus:ring"
           >
             {Array.from({ length: 9 }, (_, index) => (
               <option key={index + 1} value={String(index + 1)}>
@@ -219,7 +223,7 @@ export default function HeroSearch() {
           <button
             type="button"
             onClick={submitSearch}
-            className="w-full rounded-xl bg-sky-400 px-4 py-3.5 text-sm font-bold text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.45)] transition hover:bg-sky-300"
+            className="min-h-[44px] w-full rounded-full bg-sky-400 px-4 py-3 text-base font-semibold tracking-wide text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.45)] transition-all duration-200 hover:bg-sky-300"
           >
             Search Flights
           </button>
@@ -262,7 +266,7 @@ export default function HeroSearch() {
                 setFrom(`${route.fromCity} ${route.fromCode}`);
                 setTo(`${route.toCity} ${route.toCode}`);
               }}
-              className="rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 transition hover:border-sky-300 hover:text-sky-200"
+              className="rounded-full border border-white/30 bg-white/10 px-3 py-2 text-xs font-medium text-white/90 transition-all duration-200 hover:border-sky-300 hover:text-sky-200"
             >
               {route.fromCity} → {route.toCity}
             </button>

@@ -72,8 +72,8 @@ const destinations = [
 export default function DestinationsPage() {
   return (
     <section className="container-shell py-14">
-      <h1 className="text-4xl font-bold text-slate-900">Popular Destinations</h1>
-      <p className="mt-4 max-w-3xl text-slate-600">
+      <h1 className="heading-xl text-slate-900">Popular Destinations</h1>
+      <p className="section-subtitle mt-4 max-w-3xl">
         Discover trending cities and jump straight to flight comparisons with
         affiliate-enabled booking links.
       </p>

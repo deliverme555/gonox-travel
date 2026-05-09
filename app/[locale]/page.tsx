@@ -51,26 +51,19 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-slate-900/80" />
         <div className="container-shell relative min-h-[70vh] py-16 md:py-24">
-          <p className="fade-in-up text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-            GONOX TRAVEL
-          </p>
-          <h1 className="fade-in-up mt-4 max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
-            Search Flights Smarter
+          <p className="label-upper fade-in-up text-sky-400">GONOX TRAVEL</p>
+          <h1 className="heading-hero fade-in-up mt-4 max-w-4xl text-white">
+            <span className="block">Search Flights</span>
+            <span className="block">Smarter</span>
           </h1>
-          <p className="fade-in-up mt-4 max-w-2xl text-lg text-slate-100 md:text-xl">
+          <p className="body-lg fade-in-up mt-4 max-w-[560px] text-slate-100 opacity-90">
             Compare hundreds of airlines. Find the best deals.
           </p>
           <div className="fade-in-up mt-8 flex flex-wrap gap-3">
-            <a
-              href="#hero-search"
-              className="rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
-            >
+            <a href="#hero-search" className="btn-primary">
               Search Flights
             </a>
-            <Link
-              href="/deals"
-              className="rounded-full border border-white/70 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
-            >
+            <Link href="/deals" className="btn-secondary-outline-white">
               Explore Deals
             </Link>
           </div>
@@ -92,7 +85,7 @@ export default function HomePage() {
           ].map((badge, index) => (
             <div
               key={badge.label}
-              className={`flex items-center gap-3 text-sm ${
+              className={`body-base flex min-h-[44px] items-center gap-3 text-slate-100 ${
                 index !== 0 ? "border-white/10 md:border-l md:pl-4" : ""
               }`}
             >
@@ -106,7 +99,10 @@ export default function HomePage() {
       <PopularRoutesSection />
 
       <section className="container-shell py-10">
-        <h2 className="text-2xl font-bold text-slate-900">Popular Destinations</h2>
+        <h2 className="section-title text-slate-900">Popular Destinations</h2>
+        <p className="section-subtitle mt-2 opacity-70">
+          Trending cities—compare fares and book with confidence.
+        </p>
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           <DestinationCard
             city="Tokyo"
@@ -162,45 +158,60 @@ export default function HomePage() {
       <PopularHotelsSection />
 
       <section className="container-shell py-10">
-        <h2 className="text-2xl font-bold text-slate-900">Find Your Perfect Hotel</h2>
+        <h2 className="section-title text-slate-900">Find Your Perfect Hotel</h2>
+        <p className="section-subtitle mt-2 opacity-70">
+          Search stays worldwide with flexible dates and guest counts.
+        </p>
         <div className="mt-6">
           <HotelSearch />
         </div>
       </section>
 
       <section className="container-shell py-10">
-        <h2 className="text-2xl font-bold text-slate-900">Travel Blog Insights</h2>
+        <h2 className="section-title text-slate-900">Travel Blog Insights</h2>
+        <p className="section-subtitle mt-2 opacity-70">
+          Planning tips, fare trends and destination guides.
+        </p>
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm text-slate-900">
               Best Time to Fly Vancouver to Tokyo
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="body-base mt-2 text-slate-600">
               Seasonal timing tips to find better fares and fewer layovers.
             </p>
-            <Link href="/blog" className="mt-3 inline-block text-sm font-semibold text-sky-600">
+            <Link
+              href="/blog"
+              className="btn-card-cta mt-3 inline-flex min-h-[44px] items-center font-semibold tracking-wide text-sky-600 hover:text-sky-700"
+            >
               Read More
             </Link>
           </article>
           <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm text-slate-900">
               Cheap Flights Tips 2026
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="body-base mt-2 text-slate-600">
               Practical booking tactics that help reduce long-haul airfare costs.
             </p>
-            <Link href="/blog" className="mt-3 inline-block text-sm font-semibold text-sky-600">
+            <Link
+              href="/blog"
+              className="btn-card-cta mt-3 inline-flex min-h-[44px] items-center font-semibold tracking-wide text-sky-600 hover:text-sky-700"
+            >
               Read More
             </Link>
           </article>
           <article className="rounded-2xl bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm text-slate-900">
               Top Hotels in Bangkok
             </h3>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="body-base mt-2 text-slate-600">
               Compare value hotels and premium stays by district.
             </p>
-            <Link href="/blog" className="mt-3 inline-block text-sm font-semibold text-sky-600">
+            <Link
+              href="/blog"
+              className="btn-card-cta mt-3 inline-flex min-h-[44px] items-center font-semibold tracking-wide text-sky-600 hover:text-sky-700"
+            >
               Read More
             </Link>
           </article>
@@ -208,29 +219,32 @@ export default function HomePage() {
       </section>
 
       <section className="container-shell py-14">
-        <h2 className="text-2xl font-bold text-slate-900">Why Gonox Travel</h2>
+        <h2 className="section-title text-slate-900">Why Gonox Travel</h2>
+        <p className="section-subtitle mt-2 opacity-70">
+          Built for travelers who want clarity, speed and fair comparisons.
+        </p>
         <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           <article className="rounded-2xl bg-white p-6 shadow-sm">
             <p className="text-2xl">✈️</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm mt-2 text-slate-900">
               Compare 500+ Airlines
             </h3>
           </article>
           <article className="rounded-2xl bg-white p-6 shadow-sm">
             <p className="text-2xl">💸</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm mt-2 text-slate-900">
               Best Price Guarantee
             </h3>
           </article>
           <article className="rounded-2xl bg-white p-6 shadow-sm">
             <p className="text-2xl">✅</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm mt-2 text-slate-900">
               No Booking Fees
             </h3>
           </article>
           <article className="rounded-2xl bg-white p-6 shadow-sm">
             <p className="text-2xl">🔔</p>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+            <h3 className="heading-sm mt-2 text-slate-900">
               24/7 Flight Alerts
             </h3>
           </article>

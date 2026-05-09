@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 const marker = process.env.NEXT_PUBLIC_TP_MARKER?.trim();
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-primary",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-secondary",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
+    <html lang="en" className={`${plusJakarta.variable} ${inter.variable} h-full antialiased`}>
       <head>
         {/* Google Search Console placeholder: replace content with your verification token */}
         <meta name="google-site-verification" content="GSC_VERIFICATION_PLACEHOLDER" />
