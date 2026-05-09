@@ -1,7 +1,7 @@
 import DestinationCard from "@/components/DestinationCard";
-import DealCard from "@/components/DealCard";
 import HeroSearch from "@/components/HeroSearch";
 import HotelSearch from "@/components/HotelSearch";
+import PopularRoutesSection from "@/components/PopularRoutesSection";
 import { Link } from "@/i18n/navigation";
 import { withMarker } from "@/lib/affiliate";
 import type { Metadata } from "next";
@@ -72,53 +72,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container-shell py-14">
-        <h2 className="text-2xl font-bold text-slate-900">Popular Routes</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <DealCard
-            title="🇯🇵 YVR → NRT Tokyo"
-            subtitle="Direct and one-stop options"
-            price="From CAD $850"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}NRT1`, marker)}
-          />
-          <DealCard
-            title="🇭🇰 YVR → HKG Hong Kong"
-            subtitle="Flexible fares available"
-            price="From CAD $780"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}HKG1`, marker)}
-          />
-          <DealCard
-            title="🇹🇭 YVR → BKK Bangkok"
-            subtitle="Great value long-haul route"
-            price="From CAD $920"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}BKK1`, marker)}
-          />
-          <DealCard
-            title="🇰🇷 YVR → ICN Seoul"
-            subtitle="Premium and economy options"
-            price="From CAD $860"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}ICN1`, marker)}
-          />
-          <DealCard
-            title="🇹🇼 YVR → TPE Taipei"
-            subtitle="Easy connections and direct flights"
-            price="From CAD $800"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}TPE1`, marker)}
-          />
-          <DealCard
-            title="🇵🇭 YVR → MNL Manila"
-            subtitle="Popular family travel route"
-            price="From CAD $750"
-            ctaLabel="Search Flights"
-            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}MNL1`, marker)}
-          />
-        </div>
-      </section>
+      <PopularRoutesSection />
 
       <section className="container-shell py-10">
         <h2 className="text-2xl font-bold text-slate-900">Popular Destinations</h2>

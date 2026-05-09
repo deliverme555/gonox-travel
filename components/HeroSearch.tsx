@@ -1,22 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { withMarker } from "@/lib/affiliate";
-
-type QuickRoute = {
-  label: string;
-  from: string;
-  to: string;
-};
-
-const quickRoutes: QuickRoute[] = [
-  { label: "Vancouver → Tokyo", from: "YVR", to: "NRT" },
-  { label: "Vancouver → Hong Kong", from: "YVR", to: "HKG" },
-  { label: "Vancouver → Bangkok", from: "YVR", to: "BKK" },
-  { label: "Vancouver → Seoul", from: "YVR", to: "ICN" },
-  { label: "Vancouver → Taipei", from: "YVR", to: "TPE" },
-  { label: "Vancouver → Manila", from: "YVR", to: "MNL" },
-];
+import { getPresetByCountry, type RouteItem } from "@/lib/locationRoutes";
 
 export default function HeroSearch() {
   const marker = process.env.NEXT_PUBLIC_TP_MARKER;
@@ -27,6 +13,11 @@ export default function HeroSearch() {
   const [returnDate, setReturnDate] = useState("");
   const [passengers, setPassengers] = useState("1");
   const [nonStopOnly, setNonStopOnly] = useState(false);
+  const [isLocating, setIsLocating] = useState(true);
+  const [detectedCity, setDetectedCity] = useState("Vancouver");
+  const [dynamicRoutes, setDynamicRoutes] = useState<RouteItem[]>(
+    getPresetByCountry().routes,
+  );
 
   const getIataCode = (value: string) => {
     const match = value.toUpperCase().match(/[A-Z]{3}/g);
@@ -81,6 +72,45 @@ export default function HeroSearch() {
     if (!url) return;
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      try {
+        const response = await fetch("/api/geolocation", { cache: "no-store" });
+        const data = (await response.json()) as {
+          city?: string;
+          departureCode?: string;
+          preset?: { routes?: RouteItem[]; departureCity?: string };
+        };
+
+        if (!isMounted) return;
+
+        const departureCode = data.departureCode ?? "YVR";
+        const departureCity = data.city ?? data.preset?.departureCity ?? "Vancouver";
+        setFrom(`${departureCity} ${departureCode}`);
+        setDetectedCity(departureCity);
+        if (data.preset?.routes && data.preset.routes.length > 0) {
+          setDynamicRoutes(data.preset.routes);
+          setTo(data.preset.routes[0].toCode);
+        }
+      } catch {
+        if (!isMounted) return;
+        const fallback = getPresetByCountry();
+        setFrom(`${fallback.departureCity} ${fallback.departureCode}`);
+        setDetectedCity(fallback.departureCity);
+        setDynamicRoutes(fallback.routes);
+        setTo(fallback.routes[0]?.toCode ?? "NRT");
+      } finally {
+        if (isMounted) setIsLocating(false);
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div className="w-full rounded-2xl bg-white p-6 shadow-sm">
@@ -207,20 +237,34 @@ export default function HeroSearch() {
       </label>
 
       <div className="mt-5">
+        {isLocating ? (
+          <p className="text-xs text-slate-500">Detecting your location...</p>
+        ) : (
+          <p className="text-xs text-slate-500">
+            Showing flights from {detectedCity}.{" "}
+            <button
+              type="button"
+              onClick={() => setFrom("")}
+              className="font-semibold text-sky-600 hover:text-sky-700"
+            >
+              Change
+            </button>
+          </p>
+        )}
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
           Popular routes
         </p>
         <div className="mt-2 flex flex-wrap gap-2">
-          {quickRoutes.map((route) => (
+          {dynamicRoutes.map((route) => (
             <button
-              key={route.label}
+              key={`${route.fromCode}-${route.toCode}`}
               onClick={() => {
-                setFrom(route.from);
-                setTo(route.to);
+                setFrom(`${route.fromCity} ${route.fromCode}`);
+                setTo(`${route.toCity} ${route.toCode}`);
               }}
               className="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-sky-500 hover:text-sky-600"
             >
-              {route.label}
+              {route.fromCity} → {route.toCity}
             </button>
           ))}
         </div>
