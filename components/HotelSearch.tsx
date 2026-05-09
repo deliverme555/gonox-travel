@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { withMarker } from "@/lib/affiliate";
 
-const marker = "526748";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 export default function HotelSearch() {
   const [destination, setDestination] = useState("Tokyo");
@@ -16,14 +17,9 @@ export default function HotelSearch() {
       checkin: checkIn,
       checkout: checkOut,
       group_adults: guests,
-      marker,
     });
-
-    window.open(
-      `https://www.booking.com/search.html?${query.toString()}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    const baseUrl = `https://www.booking.com/search.html?${query.toString()}`;
+    window.open(withMarker(baseUrl, marker), "_blank", "noopener,noreferrer");
   };
 
   return (

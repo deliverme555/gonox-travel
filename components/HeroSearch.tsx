@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-const marker = "526748";
+import { withMarker } from "@/lib/affiliate";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 type QuickRoute = {
   label: string;
@@ -36,7 +37,8 @@ export default function HeroSearch() {
     const dateToken = toDateToken(departureDate);
     const normalizedFrom = from.trim().toUpperCase() || "YVR";
     const normalizedTo = to.trim().toUpperCase() || "NRT";
-    return `https://www.aviasales.com/search/${normalizedFrom}${dateToken}${normalizedTo}1?marker=${marker}`;
+    const baseUrl = `https://www.aviasales.com/search/${normalizedFrom}${dateToken}${normalizedTo}1`;
+    return withMarker(baseUrl, marker);
   };
 
   const submitSearch = () => {
@@ -112,7 +114,7 @@ export default function HeroSearch() {
 
       <div className="mt-3 text-xs text-slate-500">
         Search URL format:{" "}
-        <code>https://www.aviasales.com/search/FROMDDMMTO1?marker=526748</code>
+        <code>https://www.aviasales.com/search/FROMDDMMTO1?marker=NEXT_PUBLIC_TP_MARKER</code>
       </div>
     </div>
   );

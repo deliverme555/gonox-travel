@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER?.trim();
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,10 +56,12 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script
-          src="https://tpembars.com/NTI2NzQ4.js?t=526748"
-          strategy="afterInteractive"
-        />
+        {marker ? (
+          <Script
+            src={`https://tpembars.com/NTI2NzQ4.js?t=${marker}`}
+            strategy="afterInteractive"
+          />
+        ) : null}
       </body>
     </html>
   );

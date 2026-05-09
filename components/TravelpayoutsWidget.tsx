@@ -9,7 +9,7 @@ type TravelpayoutsWidgetProps = {
   className?: string;
 };
 
-const marker = "526748";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 export default function TravelpayoutsWidget({
   type,
@@ -21,12 +21,15 @@ export default function TravelpayoutsWidget({
 
   const iframeSrc = useMemo(() => {
     const params = new URLSearchParams({
-      trs: marker,
-      shmarker: marker,
       locale,
       curr: currency,
       widget: type,
     });
+    const cleanMarker = marker?.trim();
+    if (cleanMarker) {
+      params.set("trs", cleanMarker);
+      params.set("shmarker", cleanMarker);
+    }
     return `https://tp.media/content?${params.toString()}`;
   }, [currency, locale, type]);
 

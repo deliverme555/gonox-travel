@@ -1,9 +1,10 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { withMarker } from "@/lib/affiliate";
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const marker = "526748";
+  const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
   return (
     <footer className="mt-16 bg-slate-900 py-12 text-slate-200">
@@ -31,13 +32,13 @@ export default function Footer() {
             Popular Routes
           </p>
           <div className="mt-3 grid gap-2 text-sm">
-            <a href={`https://www.aviasales.com/search/YVR0109TYO1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+            <a href={withMarker("https://www.aviasales.com/search/YVR0109TYO1", marker)} target="_blank" rel="noopener noreferrer sponsored">
               Vancouver to Tokyo
             </a>
-            <a href={`https://www.aviasales.com/search/YVR0109HKG1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+            <a href={withMarker("https://www.aviasales.com/search/YVR0109HKG1", marker)} target="_blank" rel="noopener noreferrer sponsored">
               Vancouver to Hong Kong
             </a>
-            <a href={`https://www.aviasales.com/search/YVR0109BKK1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+            <a href={withMarker("https://www.aviasales.com/search/YVR0109BKK1", marker)} target="_blank" rel="noopener noreferrer sponsored">
               Vancouver to Bangkok
             </a>
           </div>

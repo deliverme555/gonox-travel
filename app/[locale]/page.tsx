@@ -3,6 +3,7 @@ import DealCard from "@/components/DealCard";
 import HeroSearch from "@/components/HeroSearch";
 import HotelSearch from "@/components/HotelSearch";
 import { Link } from "@/i18n/navigation";
+import { withMarker } from "@/lib/affiliate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const marker = "526748";
+  const marker = process.env.NEXT_PUBLIC_TP_MARKER;
   const today = new Date();
   const dd = String(today.getDate()).padStart(2, "0");
   const mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -60,42 +61,42 @@ export default function HomePage() {
             subtitle="Direct and one-stop options"
             price="From CAD $850"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}NRT1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}NRT1`, marker)}
           />
           <DealCard
             title="🇭🇰 YVR → HKG Hong Kong"
             subtitle="Flexible fares available"
             price="From CAD $780"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}HKG1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}HKG1`, marker)}
           />
           <DealCard
             title="🇹🇭 YVR → BKK Bangkok"
             subtitle="Great value long-haul route"
             price="From CAD $920"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}BKK1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}BKK1`, marker)}
           />
           <DealCard
             title="🇰🇷 YVR → ICN Seoul"
             subtitle="Premium and economy options"
             price="From CAD $860"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}ICN1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}ICN1`, marker)}
           />
           <DealCard
             title="🇹🇼 YVR → TPE Taipei"
             subtitle="Easy connections and direct flights"
             price="From CAD $800"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}TPE1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}TPE1`, marker)}
           />
           <DealCard
             title="🇵🇭 YVR → MNL Manila"
             subtitle="Popular family travel route"
             price="From CAD $750"
             ctaLabel="Search Flights"
-            href={`https://www.aviasales.com/search/YVR${dateToken}MNL1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}MNL1`, marker)}
           />
         </div>
       </section>
@@ -108,7 +109,7 @@ export default function HomePage() {
             country="Japan"
             summary="City lights, food districts and culture."
             image="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}NRT1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}NRT1`, marker)}
             ctaLabel="Explore Flights"
           />
           <DestinationCard
@@ -116,7 +117,7 @@ export default function HomePage() {
             country="China SAR"
             summary="Skyline views and vibrant city life."
             image="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}HKG1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}HKG1`, marker)}
             ctaLabel="Explore Flights"
           />
           <DestinationCard
@@ -124,7 +125,7 @@ export default function HomePage() {
             country="Thailand"
             summary="Street food, temples and riverside stays."
             image="https://images.unsplash.com/photo-1508009603885-50cf7c8dd0d5?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}BKK1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}BKK1`, marker)}
             ctaLabel="Explore Flights"
           />
           <DestinationCard
@@ -132,7 +133,7 @@ export default function HomePage() {
             country="South Korea"
             summary="Modern neighborhoods and rich culture."
             image="https://images.unsplash.com/photo-1538485399081-7191377e8241?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}ICN1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}ICN1`, marker)}
             ctaLabel="Explore Flights"
           />
           <DestinationCard
@@ -140,7 +141,7 @@ export default function HomePage() {
             country="Taiwan"
             summary="Night markets and mountain-city views."
             image="https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}TPE1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}TPE1`, marker)}
             ctaLabel="Explore Flights"
           />
           <DestinationCard
@@ -148,7 +149,7 @@ export default function HomePage() {
             country="Philippines"
             summary="Island gateway with vibrant local food."
             image="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80"
-            href={`https://www.aviasales.com/search/YVR${dateToken}MNL1?marker=${marker}`}
+            href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}MNL1`, marker)}
             ctaLabel="Explore Flights"
           />
         </div>

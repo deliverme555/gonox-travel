@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DestinationCard from "@/components/DestinationCard";
+import { withMarker } from "@/lib/affiliate";
 
 export const metadata: Metadata = {
   title: "Destinations | Gonox Travel",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-const marker = "526748";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 const destinations = [
   {
@@ -84,7 +85,7 @@ export default function DestinationsPage() {
             country={destination.country}
             summary={destination.summary}
             image={destination.image}
-            href={`https://www.aviasales.com/?marker=${marker}`}
+            href={withMarker("https://www.aviasales.com/", marker)}
           />
         ))}
       </div>

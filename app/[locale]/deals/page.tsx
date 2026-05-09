@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import DealCard from "@/components/DealCard";
+import { withMarker } from "@/lib/affiliate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function DealsPage() {
   const t = useTranslations("pages.deals");
   const items = ["item1", "item2", "item3", "item4"] as const;
-  const marker = "526748";
+  const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
   return (
     <section className="container-shell py-14">
@@ -37,7 +38,7 @@ export default function DealsPage() {
             subtitle={t(`items.${item}.subtitle`)}
             price={t(`items.${item}.price`)}
             ctaLabel={t("cta")}
-            href={`https://www.travelpayouts.com/?marker=${marker}`}
+            href={withMarker("https://www.travelpayouts.com/", marker)}
           />
         ))}
       </div>

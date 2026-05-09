@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import HeroSearch from "@/components/HeroSearch";
+import { withMarker } from "@/lib/affiliate";
+const marker = process.env.NEXT_PUBLIC_TP_MARKER;
 
 export const metadata: Metadata = {
   title: "Vancouver to Seoul Flights | Gonox Travel",
@@ -57,7 +59,7 @@ export default function VancouverToSeoulPage() {
           </table>
         </article>
       </div>
-      <a href="https://www.aviasales.com/search/YVR0109ICN1?marker=526748" target="_blank" rel="noopener noreferrer sponsored" className="mt-8 inline-block rounded-full bg-sky-500 px-5 py-3 font-semibold text-white hover:bg-sky-600">
+      <a href={withMarker("https://www.aviasales.com/search/YVR0109ICN1", marker)} target="_blank" rel="noopener noreferrer sponsored" className="mt-8 inline-block rounded-full bg-sky-500 px-5 py-3 font-semibold text-white hover:bg-sky-600">
         Search Vancouver to Seoul Flights
       </a>
     </section>
