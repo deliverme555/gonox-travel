@@ -49,13 +49,13 @@ export default function Footer() {
             {t("followUs")}
           </p>
           <div className="mt-3 flex gap-3">
-            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm transition hover:text-sky-400" href="https://x.com" target="_blank" rel="noopener noreferrer">
               X
             </a>
-            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm transition hover:text-pink-400" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
               IG
             </a>
-            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm transition hover:text-red-400" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
               YT
             </a>
           </div>
@@ -71,6 +71,22 @@ export default function Footer() {
       </div>
       <p className="container-shell mt-8 border-t border-slate-800 pt-6 text-sm text-slate-400">
         {t("copyright")}
+      </p>
+      <div className="container-shell mt-4 flex flex-wrap gap-4 text-xs text-slate-400">
+        <Link href="/privacy-policy">Privacy Policy</Link>
+        <Link href="/terms-and-conditions">Terms & Conditions</Link>
+        <Link href="/affiliate-disclosure">Affiliate Disclosure</Link>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+      <p className="container-shell mt-3 text-xs text-slate-400">
+        © 2026 Gonox Travel. All rights reserved.
+      </p>
+      <p className="container-shell mt-2 text-xs text-slate-400">
+        Powered by Travelpayouts affiliate network
+      </p>
+      <p className="container-shell mt-3 text-xs text-slate-500">
+        Gonox Travel participates in affiliate programs. We may earn a commission
+        when you book through our links, at no extra cost to you.
       </p>
     </footer>
   );

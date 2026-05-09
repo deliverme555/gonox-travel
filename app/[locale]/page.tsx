@@ -6,6 +6,7 @@ import PopularRoutesSection from "@/components/PopularRoutesSection";
 import { Link } from "@/i18n/navigation";
 import { withMarker } from "@/lib/affiliate";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Gonox Travel | Flights, Hotels & Deals",
@@ -40,18 +41,26 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.25),_transparent_50%)]" />
+        <Image
+          src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=90"
+          alt="Aerial cloudscape view for travel planning"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-slate-900/80" />
         <div className="container-shell relative min-h-[70vh] py-16 md:py-24">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
+          <p className="fade-in-up text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
             GONOX TRAVEL
           </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
+          <h1 className="fade-in-up mt-4 max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
             Search Flights Smarter
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-200">
+          <p className="fade-in-up mt-4 max-w-2xl text-lg text-slate-100 md:text-xl">
             Compare hundreds of airlines. Find the best deals.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="fade-in-up mt-8 flex flex-wrap gap-3">
             <a
               href="#hero-search"
               className="rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
@@ -65,11 +74,32 @@ export default function HomePage() {
               Explore Deals
             </Link>
           </div>
-          <div id="hero-search" className="relative mt-10 md:mt-14">
-            <div className="rounded-2xl bg-white/5 p-1">
+          <div id="hero-search" className="fade-in-up relative mt-10 md:mt-14">
+            <div className="rounded-2xl">
               <HeroSearch />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-900 py-5 text-white">
+        <div className="container-shell grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: "✈️", label: "Compare 500+ Airlines" },
+            { icon: "🔒", label: "Secure Booking Experience" },
+            { icon: "💰", label: "No Hidden Fees" },
+            { icon: "🌍", label: "Trusted by Travelers Worldwide" },
+          ].map((badge, index) => (
+            <div
+              key={badge.label}
+              className={`flex items-center gap-3 text-sm ${
+                index !== 0 ? "border-white/10 md:border-l md:pl-4" : ""
+              }`}
+            >
+              <span className="text-sky-400">{badge.icon}</span>
+              <span>{badge.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 

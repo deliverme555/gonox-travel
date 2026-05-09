@@ -1,32 +1,46 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 const marker = process.env.NEXT_PUBLIC_TP_MARKER?.trim();
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-geist-sans",
 });
 
 export const metadata: Metadata = {
   title: "Gonox Travel",
-  description: "Search flights, hotels and travel deals worldwide",
+  description:
+    "Discover smarter flight and hotel booking with Gonox Travel. Compare global fares, premium stays and real-time travel deals in seconds.",
   metadataBase: new URL("https://www.gonoxtravel.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Gonox Travel",
-    description: "Search flights, hotels and travel deals worldwide",
+    description:
+      "Discover smarter flight and hotel booking with Gonox Travel. Compare global fares, premium stays and real-time travel deals in seconds.",
     url: "https://www.gonoxtravel.com",
     siteName: "Gonox Travel",
     type: "website",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=90",
+        width: 1920,
+        height: 1080,
+        alt: "Gonox Travel hero sky view",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gonox Travel",
-    description: "Search flights, hotels and travel deals worldwide",
+    description:
+      "Discover smarter flight and hotel booking with Gonox Travel. Compare global fares, premium stays and real-time travel deals in seconds.",
+    images: [
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=90",
+    ],
   },
 };
 
@@ -36,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
       <head>
         {/* Google Search Console placeholder: replace content with your verification token */}
         <meta name="google-site-verification" content="GSC_VERIFICATION_PLACEHOLDER" />

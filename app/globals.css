@@ -22,6 +22,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -32,4 +34,19 @@ a {
 .container-shell {
   margin-inline: auto;
   width: min(1200px, calc(100% - 2rem));
+}
+
+.fade-in-up {
+  animation: fade-in-up 700ms ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

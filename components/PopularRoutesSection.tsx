@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import DealCard from "@/components/DealCard";
 import { withMarker } from "@/lib/affiliate";
 import { getPresetByCountry, type RouteItem } from "@/lib/locationRoutes";
 
@@ -58,17 +57,42 @@ export default function PopularRoutesSection() {
       </p>
       <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {routes.map((route) => (
-          <DealCard
+          <article
             key={`${route.fromCode}-${route.toCode}`}
-            title={`${route.flag} ${route.fromCode} → ${route.toCode} ${route.toCity}`}
-            subtitle={`${route.fromCity} to ${route.toCity}`}
-            price={`From CAD $${route.priceFromCad}`}
-            ctaLabel="Search Flights"
-            href={withMarker(
-              `https://www.aviasales.com/search/${route.fromCode}${dateToken}${route.toCode}1`,
-              marker,
-            )}
-          />
+            className="rounded-2xl border-l-4 border-sky-400 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-lg font-semibold text-slate-900">
+                  {route.fromCity}
+                </p>
+                <p className="text-sm text-slate-500">{route.fromCode}</p>
+              </div>
+              <div className="flex-1 px-2 text-center">
+                <p className="text-sm text-slate-400">──────── ✈️ ────────</p>
+              </div>
+              <div className="text-right">
+                <p className="text-lg font-semibold text-slate-900">{route.toCity}</p>
+                <p className="text-sm text-slate-500">{route.toCode}</p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between">
+              <p className="text-lg font-bold text-sky-600">
+                From CAD ${route.priceFromCad}
+              </p>
+              <a
+                href={withMarker(
+                  `https://www.aviasales.com/search/${route.fromCode}${dateToken}${route.toCode}1`,
+                  marker,
+                )}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="rounded-lg border border-sky-500 px-4 py-2 text-sm font-semibold text-sky-600 transition hover:bg-sky-500 hover:text-white"
+              >
+                Search Flights
+              </a>
+            </div>
+          </article>
         ))}
       </div>
     </section>

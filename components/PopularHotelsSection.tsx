@@ -7,6 +7,7 @@ type HotelItem = {
   location: string;
   stars: number;
   price: string;
+  score: string;
   image: string;
   url: string;
 };
@@ -17,6 +18,7 @@ const hotels: HotelItem[] = [
     location: "Tokyo, Japan",
     stars: 5,
     price: "From CAD $450/night",
+    score: "9.4 Excellent",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
     url: "https://www.booking.com/hotel/jp/park-hyatt-tokyo.html?aid=304142",
@@ -26,15 +28,17 @@ const hotels: HotelItem[] = [
     location: "Hong Kong",
     stars: 5,
     price: "From CAD $520/night",
+    score: "9.6 Excellent",
     image:
       "https://images.unsplash.com/photo-1551882547-ff40c4fe1fa7?w=800&q=80",
-    url: "https://www.booking.com/hotel/hk/the-peninsula-hong-kong.html?aid=304142",
+    url: "https://www.booking.com/city/hk/hong-kong.html?aid=304142",
   },
   {
     name: "Rosewood Bangkok",
     location: "Bangkok, Thailand",
     stars: 5,
     price: "From CAD $280/night",
+    score: "9.3 Excellent",
     image:
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
     url: "https://www.booking.com/city/th/bangkok.html?aid=304142",
@@ -44,6 +48,7 @@ const hotels: HotelItem[] = [
     location: "Seoul, South Korea",
     stars: 5,
     price: "From CAD $320/night",
+    score: "9.1 Excellent",
     image:
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
     url: "https://www.booking.com/city/kr/seoul.html?aid=304142",
@@ -53,6 +58,7 @@ const hotels: HotelItem[] = [
     location: "Taipei, Taiwan",
     stars: 5,
     price: "From CAD $350/night",
+    score: "9.0 Excellent",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
     url: "https://www.booking.com/city/tw/taipei.html?aid=304142",
@@ -62,6 +68,7 @@ const hotels: HotelItem[] = [
     location: "Manila, Philippines",
     stars: 5,
     price: "From CAD $180/night",
+    score: "8.9 Excellent",
     image:
       "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80",
     url: "https://www.booking.com/city/ph/manila.html?aid=304142",
@@ -80,16 +87,21 @@ export default function PopularHotelsSection() {
         {hotels.map((hotel) => (
           <article
             key={hotel.name}
-            className="overflow-hidden rounded-2xl bg-white shadow-md transition-shadow hover:shadow-xl"
+            className="overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:shadow-2xl"
           >
             <div className="relative aspect-[16/9]">
               <Image
                 src={hotel.image}
                 alt={hotel.name}
                 fill
+                loading="lazy"
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+              <span className="absolute bottom-3 right-3 rounded-md bg-sky-500 px-2.5 py-1 text-xs font-bold text-white">
+                {hotel.score}
+              </span>
             </div>
             <div className="p-5">
               <h3 className="text-lg font-semibold text-slate-900">{hotel.name}</h3>
@@ -97,7 +109,7 @@ export default function PopularHotelsSection() {
               <p className="mt-2 text-base text-amber-500">
                 {"★".repeat(hotel.stars)}
               </p>
-              <p className="mt-2 text-lg font-bold text-sky-600">{hotel.price}</p>
+              <p className="mt-2 text-lg font-bold text-slate-900">{hotel.price}</p>
               <a
                 href={withMarker(hotel.url, marker) ?? ""}
                 target="_blank"

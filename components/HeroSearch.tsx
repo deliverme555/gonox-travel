@@ -113,16 +113,16 @@ export default function HeroSearch() {
   }, []);
 
   return (
-    <div className="w-full rounded-2xl bg-white p-6 shadow-sm">
+    <div className="w-full rounded-2xl border border-white/20 bg-white/10 p-6 text-white shadow-xl backdrop-blur-md">
       <div className="mb-4 flex items-center justify-start">
-        <div className="inline-flex rounded-full bg-slate-100 p-1">
+        <div className="inline-flex rounded-full bg-white/15 p-1">
           <button
             type="button"
             onClick={() => setTripType("return")}
             className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
               tripType === "return"
                 ? "bg-sky-500 text-white"
-                : "text-slate-600 hover:text-slate-900"
+                : "text-white/80 hover:text-white"
             }`}
           >
             Return
@@ -133,7 +133,7 @@ export default function HeroSearch() {
             className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
               tripType === "oneway"
                 ? "bg-sky-500 text-white"
-                : "text-slate-600 hover:text-slate-900"
+                : "text-white/80 hover:text-white"
             }`}
           >
             One-way
@@ -143,27 +143,27 @@ export default function HeroSearch() {
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-slate-600">From</label>
+          <label className="mb-1 block text-xs font-semibold text-white/90">From</label>
           <input
             value={from}
             onChange={(event) => setFrom(event.target.value)}
             type="text"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
             placeholder="City or airport"
           />
         </div>
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-slate-600">To</label>
+          <label className="mb-1 block text-xs font-semibold text-white/90">To</label>
           <input
             value={to}
             onChange={(event) => setTo(event.target.value)}
             type="text"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
             placeholder="City or airport"
           />
         </div>
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-slate-600">
+          <label className="mb-1 block text-xs font-semibold text-white/90">
             Departure date
           </label>
           <input
@@ -175,12 +175,12 @@ export default function HeroSearch() {
               if (!event.currentTarget.value) event.currentTarget.type = "text";
             }}
             type="text"
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
           />
         </div>
         {tripType === "return" ? (
           <div className="lg:col-span-2">
-            <label className="mb-1 block text-xs font-semibold text-slate-600">
+            <label className="mb-1 block text-xs font-semibold text-white/90">
               Return date
             </label>
             <input
@@ -192,20 +192,20 @@ export default function HeroSearch() {
                 if (!event.currentTarget.value) event.currentTarget.type = "text";
               }}
               type="text"
-              className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
+              className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white placeholder-white/60 outline-none ring-sky-300 focus:ring"
             />
           </div>
         ) : (
           <div className="hidden lg:block lg:col-span-2" />
         )}
         <div className="lg:col-span-2">
-          <label className="mb-1 block text-xs font-semibold text-slate-600">
+          <label className="mb-1 block text-xs font-semibold text-white/90">
             Passengers
           </label>
           <select
             value={passengers}
             onChange={(event) => setPassengers(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none ring-sky-300 focus:ring"
+            className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-3 text-sm text-white outline-none ring-sky-300 focus:ring"
           >
             {Array.from({ length: 9 }, (_, index) => (
               <option key={index + 1} value={String(index + 1)}>
@@ -219,14 +219,14 @@ export default function HeroSearch() {
           <button
             type="button"
             onClick={submitSearch}
-            className="w-full rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
+            className="w-full rounded-xl bg-sky-400 px-4 py-3.5 text-sm font-bold text-slate-950 shadow-[0_0_28px_rgba(56,189,248,0.45)] transition hover:bg-sky-300"
           >
             Search Flights
           </button>
         </div>
       </div>
 
-      <label className="mt-4 inline-flex items-center gap-2 text-xs text-slate-700">
+      <label className="mt-4 inline-flex items-center gap-2 text-xs text-white/85">
         <input
           type="checkbox"
           checked={nonStopOnly}
@@ -238,20 +238,20 @@ export default function HeroSearch() {
 
       <div className="mt-5">
         {isLocating ? (
-          <p className="text-xs text-slate-500">Detecting your location...</p>
+          <p className="text-xs text-white/70">Detecting your location...</p>
         ) : (
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-white/75">
             Showing flights from {detectedCity}.{" "}
             <button
               type="button"
               onClick={() => setFrom("")}
-              className="font-semibold text-sky-600 hover:text-sky-700"
+              className="font-semibold text-sky-300 hover:text-sky-200"
             >
               Change
             </button>
           </p>
         )}
-        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
           Popular routes
         </p>
         <div className="mt-2 flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ export default function HeroSearch() {
                 setFrom(`${route.fromCity} ${route.fromCode}`);
                 setTo(`${route.toCity} ${route.toCode}`);
               }}
-              className="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-sky-500 hover:text-sky-600"
+              className="rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 transition hover:border-sky-300 hover:text-sky-200"
             >
               {route.fromCity} → {route.toCity}
             </button>
