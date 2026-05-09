@@ -3,10 +3,11 @@ import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const marker = "526748";
 
   return (
     <footer className="mt-16 bg-slate-900 py-12 text-slate-200">
-      <div className="container-shell grid gap-10 md:grid-cols-3">
+      <div className="container-shell grid gap-10 md:grid-cols-4">
         <div>
           <p className="text-xl font-bold text-white">Gonox Travel</p>
           <p className="mt-3 text-sm text-slate-300">{t("description")}</p>
@@ -27,12 +28,43 @@ export default function Footer() {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">
+            Popular Routes
+          </p>
+          <div className="mt-3 grid gap-2 text-sm">
+            <a href={`https://www.aviasales.com/search/YVR0109TYO1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+              Vancouver to Tokyo
+            </a>
+            <a href={`https://www.aviasales.com/search/YVR0109HKG1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+              Vancouver to Hong Kong
+            </a>
+            <a href={`https://www.aviasales.com/search/YVR0109BKK1?marker=${marker}`} target="_blank" rel="noopener noreferrer sponsored">
+              Vancouver to Bangkok
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">
             {t("followUs")}
           </p>
           <div className="mt-3 flex gap-3">
-            <span className="rounded-full bg-slate-800 px-3 py-1 text-sm">X</span>
-            <span className="rounded-full bg-slate-800 px-3 py-1 text-sm">IG</span>
-            <span className="rounded-full bg-slate-800 px-3 py-1 text-sm">YT</span>
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://x.com" target="_blank" rel="noopener noreferrer">
+              X
+            </a>
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              IG
+            </a>
+            <a className="rounded-full bg-slate-800 px-3 py-1 text-sm" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              YT
+            </a>
+          </div>
+          <p className="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-300">
+            Popular Destinations
+          </p>
+          <div className="mt-3 grid gap-2 text-sm">
+            <Link href="/destinations">Tokyo</Link>
+            <Link href="/destinations">Paris</Link>
+            <Link href="/destinations">Bali</Link>
           </div>
         </div>
       </div>

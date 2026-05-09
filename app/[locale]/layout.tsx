@@ -17,9 +17,25 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const canonical = `https://www.gonoxtravel.com/${locale}`;
   return {
     title: `Gonox Travel | ${locale.toUpperCase()}`,
     description: "Compare flights, hotels and travel deals worldwide.",
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `Gonox Travel | ${locale.toUpperCase()}`,
+      description: "Compare flights, hotels and travel deals worldwide.",
+      url: canonical,
+      siteName: "Gonox Travel",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Gonox Travel | ${locale.toUpperCase()}`,
+      description: "Compare flights, hotels and travel deals worldwide.",
+    },
   };
 }
 

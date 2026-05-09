@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.gonoxtravel.com/sitemap.xml

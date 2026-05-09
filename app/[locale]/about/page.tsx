@@ -1,4 +1,25 @@
 import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Gonox Travel",
+  description:
+    "Learn how Gonox Travel helps users compare travel options and book with confidence.",
+  openGraph: {
+    title: "About | Gonox Travel",
+    description:
+      "Learn how Gonox Travel helps users compare travel options and book with confidence.",
+    url: "https://www.gonoxtravel.com/en/about",
+    siteName: "Gonox Travel",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Gonox Travel",
+    description:
+      "Learn how Gonox Travel helps users compare travel options and book with confidence.",
+  },
+};
 
 export default function AboutPage() {
   const t = useTranslations("pages.about");

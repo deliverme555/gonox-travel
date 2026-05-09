@@ -68,12 +68,28 @@ export default function Navbar() {
               href={item.href}
               className="text-sm text-slate-200 transition hover:text-sky-400"
             >
-              {item.label}
+              <span className="inline-flex items-center gap-2">
+                {item.label}
+                {item.href === "/deals" && (
+                  <span className="rounded-full bg-sky-500 px-2 py-0.5 text-[10px] font-semibold text-white">
+                    Hot
+                  </span>
+                )}
+              </span>
             </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <button
+            aria-label="Search"
+            className="rounded-full border border-slate-600 bg-slate-800 p-2 text-white transition hover:border-sky-400"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-2">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </button>
           <label htmlFor="locale-switcher" className="sr-only">
             {t("language")}
           </label>
@@ -82,7 +98,7 @@ export default function Navbar() {
             disabled={isPending}
             value={locale}
             onChange={(event) => handleLanguageChange(event.target.value)}
-            className="rounded-full border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-white outline-none focus:border-sky-400"
+            className="rounded-full border border-slate-600 bg-slate-800 px-4 py-2 text-sm text-white outline-none focus:border-sky-400"
           >
             {localeOptions.map((option) => (
               <option key={option.code} value={option.code}>
@@ -114,7 +130,14 @@ export default function Navbar() {
                   className="text-sm text-slate-100"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {item.label}
+                  <span className="inline-flex items-center gap-2">
+                    {item.label}
+                    {item.href === "/deals" && (
+                      <span className="rounded-full bg-sky-500 px-2 py-0.5 text-[10px] font-semibold text-white">
+                        Hot
+                      </span>
+                    )}
+                  </span>
                 </Link>
               ))}
             </nav>

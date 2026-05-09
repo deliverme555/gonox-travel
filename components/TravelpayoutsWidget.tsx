@@ -1,23 +1,52 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
 type TravelpayoutsWidgetProps = {
   type: "flights" | "hotels" | "cars";
-  campaignId: string;
+  locale?: string;
+  currency?: string;
+  className?: string;
 };
+
+const marker = "526748";
 
 export default function TravelpayoutsWidget({
   type,
-  campaignId,
+  locale = "en",
+  currency = "CAD",
+  className = "",
 }: TravelpayoutsWidgetProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const iframeSrc = useMemo(() => {
+    const params = new URLSearchParams({
+      trs: marker,
+      shmarker: marker,
+      locale,
+      curr: currency,
+      widget: type,
+    });
+    return `https://tp.media/content?${params.toString()}`;
+  }, [currency, locale, type]);
+
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-sm font-semibold text-slate-900">
-        Travelpayouts {type} widget
-      </p>
-      <p className="mt-2 text-sm text-slate-600">Campaign ID: {campaignId}</p>
-      {/* TODO: Inject real Travelpayouts script for {type} campaign here. */}
-      {/* Example target: replace this placeholder with script-based widget mount. */}
-      <div className="mt-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 p-5 text-sm text-slate-500">
-        Affiliate widget placeholder ready for script injection.
-      </div>
+    <div
+      className={`relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}
+    >
+      {isLoading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/90">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-sky-500" />
+        </div>
+      )}
+
+      <iframe
+        src={iframeSrc}
+        title={`Travelpayouts ${type}`}
+        className="h-[420px] w-full min-w-0 border-0 md:h-[460px]"
+        loading="lazy"
+        onLoad={() => setIsLoading(false)}
+      />
     </div>
   );
 }
