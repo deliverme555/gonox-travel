@@ -1,6 +1,7 @@
 import DestinationCard from "@/components/DestinationCard";
 import HeroSearch from "@/components/HeroSearch";
 import HotelSearch from "@/components/HotelSearch";
+import PopularHotelsSection from "@/components/PopularHotelsSection";
 import PopularRoutesSection from "@/components/PopularRoutesSection";
 import { Link } from "@/i18n/navigation";
 import { withMarker } from "@/lib/affiliate";
@@ -127,6 +128,8 @@ export default function HomePage() {
           />
         </div>
       </section>
+
+      <PopularHotelsSection />
 
       <section className="container-shell py-10">
         <h2 className="text-2xl font-bold text-slate-900">Find Your Perfect Hotel</h2>
