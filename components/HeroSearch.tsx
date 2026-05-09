@@ -48,41 +48,62 @@ export default function HeroSearch() {
   return (
     <div className="w-full rounded-2xl bg-white p-4 shadow-xl sm:p-6">
       <div className="grid gap-3 md:grid-cols-5">
-        <input
-          value={from}
-          onChange={(event) => setFrom(event.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
-          placeholder="From (YVR)"
-        />
-        <input
-          value={to}
-          onChange={(event) => setTo(event.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
-          placeholder="To (NRT)"
-        />
-        <input
-          value={departureDate}
-          onChange={(event) => setDepartureDate(event.target.value)}
-          type="date"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
-        />
-        <input
-          value={returnDate}
-          onChange={(event) => setReturnDate(event.target.value)}
-          type="date"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
-        />
-        <select
-          value={passengers}
-          onChange={(event) => setPassengers(event.target.value)}
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
-        >
-          {Array.from({ length: 9 }, (_, index) => (
-            <option key={index + 1} value={index + 1}>
-              {index + 1} Passenger{index === 0 ? "" : "s"}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-slate-600">From</label>
+          <input
+            value={from}
+            onChange={(event) => setFrom(event.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            placeholder="From (e.g. Vancouver YVR)"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-slate-600">To</label>
+          <input
+            value={to}
+            onChange={(event) => setTo(event.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+            placeholder="To (e.g. Tokyo NRT)"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-slate-600">
+            Departure date
+          </label>
+          <input
+            value={departureDate}
+            onChange={(event) => setDepartureDate(event.target.value)}
+            type="date"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-slate-600">
+            Return date
+          </label>
+          <input
+            value={returnDate}
+            onChange={(event) => setReturnDate(event.target.value)}
+            type="date"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-xs font-semibold text-slate-600">
+            Passengers
+          </label>
+          <select
+            value={passengers}
+            onChange={(event) => setPassengers(event.target.value)}
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none ring-sky-300 focus:ring"
+          >
+            {Array.from({ length: 9 }, (_, index) => (
+              <option key={index + 1} value={index + 1}>
+                {index + 1} Passenger{index === 0 ? "" : "s"}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <button

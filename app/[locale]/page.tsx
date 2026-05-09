@@ -124,7 +124,7 @@ export default function HomePage() {
             city="Bangkok"
             country="Thailand"
             summary="Street food, temples and riverside stays."
-            image="https://images.unsplash.com/photo-1508009603885-50cf7c8dd0d5?w=800&q=80"
+            image="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80"
             href={withMarker(`https://www.aviasales.com/search/YVR${dateToken}BKK1`, marker)}
             ctaLabel="Explore Flights"
           />
