@@ -38,17 +38,36 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-slate-900 py-20 text-white md:py-28">
+      <section className="relative overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.25),_transparent_50%)]" />
-        <div className="container-shell relative">
+        <div className="container-shell relative min-h-[70vh] py-16 md:py-24">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
+            GONOX TRAVEL
+          </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
             Search Flights Smarter
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-slate-200">
             Compare hundreds of airlines. Find the best deals.
           </p>
-          <div className="mt-10">
-            <HeroSearch />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#hero-search"
+              className="rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-600"
+            >
+              Search Flights
+            </a>
+            <Link
+              href="/deals"
+              className="rounded-full border border-white/70 px-5 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
+            >
+              Explore Deals
+            </Link>
+          </div>
+          <div id="hero-search" className="relative mt-10 md:mt-14">
+            <div className="rounded-2xl bg-white/5 p-1">
+              <HeroSearch />
+            </div>
           </div>
         </div>
       </section>
